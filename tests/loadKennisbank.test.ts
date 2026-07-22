@@ -53,4 +53,11 @@ describe("laadKennisbank", () => {
     expect(pgbVoorOuders?.inhoud).toContain("Aan een pgb zijn regels verbonden");
     expect(pgbVoorOuders?.inhoud).toContain("per financieringsvorm");
   });
+
+  it("negeert README- en stijlgidsbestanden zonder frontmatter", () => {
+    const fragmenten = laadKennisbank(join(FIXTURES, "kennisbank-met-readme"));
+
+    expect(fragmenten).toHaveLength(1);
+    expect(fragmenten[0]?.id).toBe("wat-is-autisme");
+  });
 });
