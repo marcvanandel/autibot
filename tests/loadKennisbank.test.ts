@@ -22,4 +22,8 @@ describe("laadKennisbank", () => {
   it("gooit een duidelijke fout als een bestand geen titel heeft", () => {
     expect(() => laadKennisbank(join(FIXTURES, "kennisbank-ongeldig"))).toThrow(/titel/i);
   });
+
+  it("gooit een duidelijke fout als een bestand een ongeldige doelgroep heeft", () => {
+    expect(() => laadKennisbank(join(FIXTURES, "kennisbank-ongeldig-doelgroep"))).toThrow(/doelgroep/i);
+  });
 });
