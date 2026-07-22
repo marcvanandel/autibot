@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AddressInfo } from "node:net";
+import { request } from "node:http";
 import { join } from "node:path";
 import { maakServer } from "../src/server/server";
 import type { Orchestrator } from "../src/orchestrator/Orchestrator";
@@ -59,5 +60,70 @@ describe("server", () => {
 
     expect(response.status).toBe(200);
     expect(html).toContain("<title>Autibot</title>");
+  });
+
+  it("geeft een 400 als 'vraag' ontbreekt of leeg is", async () => {
+    const fakeOrchestrator = { beantwoord: vi.fn() } as unknown as Orchestrator;
+    server = maakServer(fakeOrchestrator, PUBLIC_MAP);
+    await new Promise<void>((resolve) => server!.listen(0, resolve));
+    const poort = (server.address() as AddressInfo).port;
+
+    const response = await fetch(`http://localhost:${poort}/api/chat`, {
+      method: "POST",
+      body: JSON.stringify({ vraag: "", doelgroep: "algemeen" }),
+    });
+
+    expect(response.status).toBe(400);
+    expect(fakeOrchestrator.beantwoord).not.toHaveBeenCalled();
+  });
+
+  it("geeft een 400 als JSON ongeldig is", async () => {
+    const fakeOrchestrator = { beantwoord: vi.fn() } as unknown as Orchestrator;
+    server = maakServer(fakeOrchestrator, PUBLIC_MAP);
+    await new Promise<void>((resolve) => server!.listen(0, resolve));
+    const poort = (server.address() as AddressInfo).port;
+
+    const response = await fetch(`http://localhost:${poort}/api/chat`, {
+      method: "POST",
+      body: "{ invalid json",
+    });
+    const data = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(data.fout).toContain("Ongeldige JSON");
+    expect(fakeOrchestrator.beantwoord).not.toHaveBeenCalled();
+  });
+
+  it("blokkeert path-traversal attacks op static files", async () => {
+    const fakeOrchestrator = { beantwoord: vi.fn() } as unknown as Orchestrator;
+    server = maakServer(fakeOrchestrator, PUBLIC_MAP);
+    await new Promise<void>((resolve) => server!.listen(0, resolve));
+    const poort = (server.address() as AddressInfo).port;
+
+    // Use raw http.request to send ../package.json without URL normalization
+    const result = await new Promise<{ status: number; body: string }>((resolve) => {
+      const req = request(
+        {
+          hostname: "localhost",
+          port: poort,
+          path: "/../package.json",
+          method: "GET",
+        },
+        (res) => {
+          let body = "";
+          res.on("data", (chunk) => (body += chunk));
+          res.on("end", () => {
+            resolve({
+              status: res.statusCode ?? 500,
+              body,
+            });
+          });
+        },
+      );
+      req.end();
+    });
+
+    expect(result.status).toBe(403);
+    expect(result.body).toBe("Verboden");
   });
 });

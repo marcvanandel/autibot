@@ -1,6 +1,6 @@
 import { createServer, type Server } from "node:http";
 import { readFile } from "node:fs/promises";
-import { join, extname } from "node:path";
+import { join, extname, resolve as resolvePath, sep } from "node:path";
 import type { Orchestrator } from "../orchestrator/Orchestrator";
 import type { Doelgroep } from "../kennisbank/types";
 
@@ -17,24 +17,31 @@ export function maakServer(orchestrator: Orchestrator, publicMap: string): Serve
       let body = "";
       req.on("data", (chunk) => (body += chunk));
       req.on("end", async () => {
+        let payload: { vraag?: unknown; doelgroep?: unknown };
         try {
-          const payload = JSON.parse(body) as { vraag?: unknown; doelgroep?: unknown };
+          payload = JSON.parse(body) as { vraag?: unknown; doelgroep?: unknown };
+        } catch {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ fout: "Ongeldige JSON in het verzoek." }));
+          return;
+        }
 
-          if (typeof payload.vraag !== "string" || payload.vraag.trim() === "") {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ fout: "Veld 'vraag' ontbreekt of is leeg." }));
-            return;
-          }
-          if (!GELDIGE_DOELGROEPEN.includes(payload.doelgroep as Doelgroep)) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(
-              JSON.stringify({
-                fout: `Veld 'doelgroep' moet een van deze waarden zijn: ${GELDIGE_DOELGROEPEN.join(", ")}`,
-              }),
-            );
-            return;
-          }
+        if (typeof payload.vraag !== "string" || payload.vraag.trim() === "") {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ fout: "Veld 'vraag' ontbreekt of is leeg." }));
+          return;
+        }
+        if (!GELDIGE_DOELGROEPEN.includes(payload.doelgroep as Doelgroep)) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(
+            JSON.stringify({
+              fout: `Veld 'doelgroep' moet een van deze waarden zijn: ${GELDIGE_DOELGROEPEN.join(", ")}`,
+            }),
+          );
+          return;
+        }
 
+        try {
           const antwoord = await orchestrator.beantwoord(
             payload.vraag,
             payload.doelgroep as Doelgroep,
@@ -49,8 +56,24 @@ export function maakServer(orchestrator: Orchestrator, publicMap: string): Serve
       return;
     }
 
-    const pad = req.url === "/" ? "/index.html" : (req.url ?? "/index.html");
-    readFile(join(publicMap, pad))
+    let pad = req.url === "/" ? "/index.html" : (req.url ?? "/index.html");
+    // Strip query string if present
+    pad = pad.split("?")[0];
+
+    const opgelostPad = resolvePath(publicMap, `.${pad}`);
+    const opgelostPublicMap = resolvePath(publicMap);
+
+    // Path traversal protection: reject if outside publicMap
+    if (
+      !opgelostPad.startsWith(opgelostPublicMap + sep) &&
+      opgelostPad !== opgelostPublicMap
+    ) {
+      res.writeHead(403, { "Content-Type": "text/plain" });
+      res.end("Verboden");
+      return;
+    }
+
+    readFile(opgelostPad)
       .then((bestand) => {
         const contentType = CONTENT_TYPES[extname(pad)] ?? "application/octet-stream";
         res.writeHead(200, { "Content-Type": contentType });
