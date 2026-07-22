@@ -29,4 +29,23 @@ describe("ClaudeProvider", () => {
     const aanroep = nepClient.messages.create.mock.calls[0][0];
     expect(aanroep.temperature).toBeUndefined();
   });
+
+  it("gooit een fout als Claude geen tekstantwoord geeft (bijv. weigering of leeg antwoord)", async () => {
+    const fragmenten: GevondenFragment[] = [
+      { id: "a", titel: "Titel A", inhoud: "Inhoud A", bestandspad: "a.md", score: 1 },
+    ];
+    const nepClient = {
+      messages: {
+        create: vi.fn().mockResolvedValue({
+          content: [{ type: "thinking", thinking: "..." }],
+        }),
+      },
+    };
+
+    const provider = new ClaudeProvider(nepClient as any);
+
+    await expect(provider.answer("Een vraag", fragmenten, "algemeen")).rejects.toThrow(
+      "Claude gaf geen tekstantwoord terug (mogelijk een weigering of leeg antwoord).",
+    );
+  });
 });

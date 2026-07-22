@@ -31,6 +31,12 @@ export class ClaudeProvider implements LLMProvider {
       (blok): blok is Extract<typeof blok, { type: "text" }> => blok.type === "text",
     );
 
-    return { tekst: tekstBlok?.text ?? "", bronnen: fragmenten };
+    if (!tekstBlok || tekstBlok.type !== "text") {
+      throw new Error(
+        "Claude gaf geen tekstantwoord terug (mogelijk een weigering of leeg antwoord).",
+      );
+    }
+
+    return { tekst: tekstBlok.text, bronnen: fragmenten };
   }
 }
