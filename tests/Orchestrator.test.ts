@@ -21,7 +21,7 @@ describe("Orchestrator", () => {
       titel: "Titel A",
       inhoud: "Inhoud A",
       bestandspad: "a.md",
-      score: 5,
+      score: 50,
     };
     const retriever = maakFakeRetriever([fragment]);
     const verwachtAntwoord: Antwoord = { tekst: "Een antwoord.", bronnen: [fragment] };

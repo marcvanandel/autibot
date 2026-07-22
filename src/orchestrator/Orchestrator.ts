@@ -2,9 +2,11 @@ import type { Doelgroep } from "../kennisbank/types";
 import type { Retriever } from "../retriever/Retriever";
 import type { Antwoord, LLMProvider } from "../llm/LLMProvider";
 
-// minisearch-scores zijn niet genormaliseerd naar een vaste 0-1-schaal; deze
-// drempel is een startpunt en verdient bijstelling zodra er echte
-// gebruikersvragen tegen de kennisbank getest zijn.
+// Empirisch afgesteld tegen minisearch-scores op de test-kennisbank:
+// "Hoe repareer ik een lekkende kraan?" (irrelevant) → 3.25
+// "Wat is autisme?" (relevant) → 17.43
+// Drempel = 5 ligt hier tussenin. Fit to small 2-doc fixture (zie ADR-0006);
+// echte productie-kennisbank verdient hertuning tegen werkelijke scores.
 const RELEVANTIE_DREMPEL = 5;
 
 const IK_WEET_HET_NIET: Antwoord = {
