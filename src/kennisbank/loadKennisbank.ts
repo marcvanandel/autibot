@@ -8,7 +8,9 @@ const GELDIGE_DOELGROEPEN: Doelgroep[] = ["zelf", "ouder-naaste", "professional"
 export function laadKennisbank(map: string): Fragment[] {
   let bestanden: string[];
   try {
-    bestanden = readdirSync(map).filter((naam: string) => extname(naam) === ".md");
+    bestanden = readdirSync(map).filter(
+      (naam: string) => extname(naam) === ".md" && basename(naam, ".md").toLowerCase() !== "readme",
+    );
   } catch (fout) {
     throw new Error(`Kan kennisbank-map niet lezen: ${map} (${(fout as Error).message})`);
   }

@@ -26,4 +26,11 @@ describe("laadKennisbank", () => {
   it("gooit een duidelijke fout als een bestand een ongeldige doelgroep heeft", () => {
     expect(() => laadKennisbank(join(FIXTURES, "kennisbank-ongeldig-doelgroep"))).toThrow(/doelgroep/i);
   });
+
+  it("negeert een README-bestand zonder frontmatter", () => {
+    const fragmenten = laadKennisbank(join(FIXTURES, "kennisbank-met-readme"));
+
+    expect(fragmenten).toHaveLength(1);
+    expect(fragmenten[0]?.id).toBe("wat-is-autisme");
+  });
 });
