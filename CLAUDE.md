@@ -4,9 +4,16 @@ Dit bestand biedt richtlijnen aan Claude Code (claude.ai/code) bij het werken me
 
 ## Status van het project
 
-Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM, die antwoorden geeft op basis van geselecteerde teksten over ASS (Autisme Spectrum Stoornis). Deze repository is momenteel enkel de eerste aanzet/het prototype-idee: ze bevat alleen een `README.md` en een `LICENSE` (MIT), zonder broncode, buildtooling of tests.
+Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM, die antwoorden geeft op basis van geselecteerde teksten over ASS (Autisme Spectrum Stoornis). Er is nu een werkende lokale demo-implementatie (TypeScript/Node.js) die het ontwerp uit [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) uitvoert: vijf samenwerkende onderdelen (Kennisbank, Retriever, Orchestrator, LLMProvider, een lokale webserver/UI) en een testsuite van 23 tests.
 
-Omdat er nog geen code of tooling aanwezig is, zijn er geen build-, lint- of testcommando's om uit te voeren. Zodra er code wordt toegevoegd, werk dit bestand dan bij met de daadwerkelijke commando's (build, lint, het draaien van een enkele test) en de werkelijke architectuur — ga niet op voorhand uit van een bepaalde technische stack.
+Belangrijke commando's:
+
+- `npm install` — installeer de dependencies.
+- `npm run dev` — start de lokale server (localhost); vereist de omgevingsvariabele `ANTHROPIC_API_KEY` om daadwerkelijk antwoorden via Claude te genereren.
+- `npm test` — draait de testsuite (vitest).
+- `npm run typecheck` — controleert de TypeScript-types (`tsc --noEmit`).
+
+Het ontwerpdocument staat in `docs/superpowers/specs/`, de Architecture Decision Records staan in `adr/` (zie hieronder), en het uitvoeringsplan/de voortgang van de bouw staat in `.superpowers/sdd/`.
 
 ## Architectuurbeslissingen (ADR's)
 

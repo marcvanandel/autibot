@@ -8,10 +8,17 @@ Een LLM kan vlot en overtuigend klinken, maar ook dingen verzinnen ("hallucinere
 
 ## Status
 
-Deze repository bevat op dit moment nog geen werkende code. Het ontwerp voor de eerste versie (MVP) is wel al uitgewerkt en goedgekeurd:
+Er is nu een werkende lokale demo-implementatie (TypeScript/Node.js) die het ontwerp voor de eerste versie (MVP) uitvoert:
 
-- [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) beschrijft de architectuur, dataflow en scope van de eerste versie: een lokaal draaiend prototype dat vragen beantwoordt op basis van een kennisbank van markdown-bestanden, gebouwd in TypeScript/Node.js.
-- [`adr/`](adr/) bevat Architecture Decision Records die de belangrijkste technische keuzes en de motivatie daarachter vastleggen.
+- [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) beschrijft de architectuur, dataflow en scope: een lokaal draaiend prototype dat vragen beantwoordt op basis van een kennisbank van markdown-bestanden.
+- [`adr/`](adr/) bevat Architecture Decision Records (0001 t/m 0007) die de belangrijkste technische keuzes en de motivatie daarachter vastleggen.
+
+Aan de slag:
+
+- `npm install` — installeer de dependencies.
+- `npm run dev` — start de lokale server (op localhost). Om daadwerkelijk antwoorden via Claude te krijgen is een `ANTHROPIC_API_KEY`-omgevingsvariabele nodig.
+- `npm test` — draait de testsuite (23 tests, vitest).
+- `npm run typecheck` — controleert de TypeScript-types.
 
 ## Licentie
 
