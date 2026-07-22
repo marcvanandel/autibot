@@ -5,7 +5,7 @@ import type { Antwoord, LLMProvider } from "../llm/LLMProvider";
 // minisearch-scores zijn niet genormaliseerd naar een vaste 0-1-schaal; deze
 // drempel is een startpunt en verdient bijstelling zodra er echte
 // gebruikersvragen tegen de kennisbank getest zijn.
-const RELEVANTIE_DREMPEL = 1;
+const RELEVANTIE_DREMPEL = 5;
 
 const IK_WEET_HET_NIET: Antwoord = {
   tekst:

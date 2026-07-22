@@ -96,7 +96,7 @@ describe("Orchestrator met KeywordRetriever (golden scenario's)", () => {
     const orchestrator = new Orchestrator(retriever, llmProvider);
 
     const antwoord = await orchestrator.beantwoord(
-      "Wat is de hoofdstad van Mongolie?",
+      "Hoe repareer ik een lekkende kraan?",
       "algemeen",
     );
 
