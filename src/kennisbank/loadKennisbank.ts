@@ -19,7 +19,12 @@ export function laadKennisbank(map: string): Fragment[] {
 
   return bestanden.map((bestandsnaam) => {
     const pad = join(map, bestandsnaam);
-    const ruw = readFileSync(pad, "utf-8");
+    let ruw: string;
+    try {
+      ruw = readFileSync(pad, "utf-8");
+    } catch (fout) {
+      throw new Error(`Kan bestand niet lezen: ${pad} (${(fout as Error).message})`);
+    }
     const { data, content } = matter(ruw);
 
     if (typeof data.titel !== "string" || data.titel.trim() === "") {

@@ -29,10 +29,21 @@ document.getElementById("vraagFormulier").addEventListener("submit", async (even
   if (data.fout) {
     blok.textContent = `Fout: ${data.fout}`;
   } else {
-    const bronnenTekst = data.bronnen.length
+    const vraagParagraaf = document.createElement("p");
+    const vraagLabel = document.createElement("strong");
+    vraagLabel.textContent = "Vraag:";
+    vraagParagraaf.append(vraagLabel, ` ${vraag}`);
+
+    const antwoordParagraaf = document.createElement("p");
+    antwoordParagraaf.textContent = data.tekst;
+
+    const bronnenParagraaf = document.createElement("p");
+    bronnenParagraaf.className = "bronnen";
+    bronnenParagraaf.textContent = data.bronnen.length
       ? `Bronnen: ${data.bronnen.map((b) => b.titel).join(", ")}`
       : "Geen bronnen (buiten de kennisbank)";
-    blok.innerHTML = `<p><strong>Vraag:</strong> ${vraag}</p><p>${data.tekst}</p><p class="bronnen">${bronnenTekst}</p>`;
+
+    blok.append(vraagParagraaf, antwoordParagraaf, bronnenParagraaf);
   }
   container.prepend(blok);
 });

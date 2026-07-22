@@ -5,7 +5,7 @@ import type { Antwoord, LLMProvider } from "./LLMProvider";
 import { bouwGebruikersprompt, bouwSystemPrompt } from "./prompts";
 
 const MODEL = "claude-opus-4-8";
-const MAX_TOKENS = 1024;
+const MAX_TOKENS = 4096;
 
 export class ClaudeProvider implements LLMProvider {
   private readonly client: Anthropic;
@@ -31,7 +31,7 @@ export class ClaudeProvider implements LLMProvider {
       (blok): blok is Extract<typeof blok, { type: "text" }> => blok.type === "text",
     );
 
-    if (!tekstBlok || tekstBlok.type !== "text") {
+    if (!tekstBlok) {
       throw new Error(
         "Claude gaf geen tekstantwoord terug (mogelijk een weigering of leeg antwoord).",
       );

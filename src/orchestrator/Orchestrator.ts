@@ -5,7 +5,7 @@ import type { Antwoord, LLMProvider } from "../llm/LLMProvider";
 // Empirisch afgesteld tegen minisearch-scores op de test-kennisbank:
 // "Hoe repareer ik een lekkende kraan?" (irrelevant) → 3.25
 // "Wat is autisme?" (relevant) → 17.43
-// Drempel = 5 ligt hier tussenin. Fit to small 2-doc fixture (zie ADR-0006);
+// Drempel = 5 ligt hier tussenin. Afgestemd op de kleine 2-document testfixture (zie ADR-0006);
 // echte productie-kennisbank verdient hertuning tegen werkelijke scores.
 const RELEVANTIE_DREMPEL = 5;
 
