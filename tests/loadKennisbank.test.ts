@@ -4,6 +4,7 @@ import { laadKennisbank } from "../src/kennisbank/loadKennisbank";
 
 const FIXTURES = join(__dirname, "fixtures");
 const KENNISBANK = join(__dirname, "..", "kennisbank");
+const MIN_VERWACHTE_PARAGRAFEN = 5;
 
 function telParagrafen(inhoud: string): number {
   return inhoud.split(/\n{2,}/).filter((paragraaf) => paragraaf.trim() !== "").length;
@@ -37,7 +38,7 @@ describe("laadKennisbank", () => {
 
     const watIsAutisme = fragmenten.find((f) => f.id === "wat-is-autisme");
     expect(watIsAutisme).toBeDefined();
-    expect(telParagrafen(watIsAutisme!.inhoud)).toBeGreaterThanOrEqual(5);
+    expect(telParagrafen(watIsAutisme!.inhoud)).toBeGreaterThanOrEqual(MIN_VERWACHTE_PARAGRAFEN);
     expect(watIsAutisme?.inhoud).toContain("neuroontwikkelingsprofiel");
     expect(watIsAutisme?.inhoud).toContain("Autisme is aangeboren");
     expect(watIsAutisme?.inhoud).toContain("sensorische gevoeligheid");
@@ -45,7 +46,7 @@ describe("laadKennisbank", () => {
 
     const pgbVoorOuders = fragmenten.find((f) => f.id === "pgb-voor-ouders");
     expect(pgbVoorOuders).toBeDefined();
-    expect(telParagrafen(pgbVoorOuders!.inhoud)).toBeGreaterThanOrEqual(5);
+    expect(telParagrafen(pgbVoorOuders!.inhoud)).toBeGreaterThanOrEqual(MIN_VERWACHTE_PARAGRAFEN);
     expect(pgbVoorOuders?.inhoud).toContain("ouders of verzorgers zelf zorg of begeleiding kunnen inkopen");
     expect(pgbVoorOuders?.inhoud).toContain("de gemeente, het zorgkantoor, de zorgverzekeraar of de Jeugdwet");
     expect(pgbVoorOuders?.inhoud).toContain("Aan een pgb zijn regels verbonden");
