@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { laadKennisbank } from "../src/kennisbank/loadKennisbank";
 
 const FIXTURES = join(__dirname, "fixtures");
+const KENNISBANK = join(__dirname, "..", "kennisbank");
 
 describe("laadKennisbank", () => {
   it("laadt geldige markdown-bestanden met frontmatter in fragmenten", () => {
@@ -25,5 +26,17 @@ describe("laadKennisbank", () => {
 
   it("gooit een duidelijke fout als een bestand een ongeldige doelgroep heeft", () => {
     expect(() => laadKennisbank(join(FIXTURES, "kennisbank-ongeldig-doelgroep"))).toThrow(/doelgroep/i);
+  });
+
+  it("laadt de herschreven kennisbankbestanden in de neutrale bronstijl", () => {
+    const fragmenten = laadKennisbank(KENNISBANK);
+
+    const watIsAutisme = fragmenten.find((f) => f.id === "wat-is-autisme");
+    expect(watIsAutisme?.inhoud).toContain("neuroontwikkelingsprofiel");
+    expect(watIsAutisme?.inhoud).toContain("sensorische gevoeligheid");
+
+    const pgbVoorOuders = fragmenten.find((f) => f.id === "pgb-voor-ouders");
+    expect(pgbVoorOuders?.inhoud).toContain("ouders of verzorgers zelf zorg of begeleiding kunnen inkopen");
+    expect(pgbVoorOuders?.inhoud).toContain("gemeente, het zorgkantoor, de zorgverzekeraar of de Jeugdwet");
   });
 });
