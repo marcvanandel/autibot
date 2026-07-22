@@ -15,6 +15,7 @@ export function bouwSystemPrompt(doelgroep: Doelgroep): string {
     "Je bent Autibot, een assistent die vragen over autisme (ASS) beantwoordt.",
     "Antwoord uitsluitend op basis van de context die hieronder in de gebruikersvraag wordt meegegeven.",
     "Als het antwoord niet in de gegeven context staat, zeg dat dan expliciet en verzin geen informatie.",
+    "Schrijf je antwoord in platte tekst, zonder Markdown-opmaak: geen #-koppen, geen **vet**, geen opsommingstekens met -.",
     TOONINSTRUCTIE_PER_DOELGROEP[doelgroep],
   ].join(" ");
 }

@@ -11,18 +11,31 @@ document.querySelectorAll("#doelgroepkeuze button").forEach((knop) => {
 document.getElementById("vraagFormulier").addEventListener("submit", async (event) => {
   event.preventDefault();
   const invoer = document.getElementById("vraagInvoer");
+  const vraagKnop = event.target.querySelector("button[type=submit]");
   const vraag = invoer.value.trim();
   if (!vraag) return;
   invoer.value = "";
 
-  const response = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ vraag, doelgroep: gekozenDoelgroep }),
-  });
-  const data = await response.json();
-
   const container = document.getElementById("antwoorden");
+  const laadIndicator = document.createElement("div");
+  laadIndicator.className = "antwoord laden";
+  laadIndicator.textContent = "Autibot denkt na...";
+  container.prepend(laadIndicator);
+  vraagKnop.disabled = true;
+
+  let data;
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ vraag, doelgroep: gekozenDoelgroep }),
+    });
+    data = await response.json();
+  } finally {
+    laadIndicator.remove();
+    vraagKnop.disabled = false;
+  }
+
   const blok = document.createElement("div");
   blok.className = "antwoord";
 
