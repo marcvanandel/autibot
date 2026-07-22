@@ -32,10 +32,12 @@ describe("laadKennisbank", () => {
     const fragmenten = laadKennisbank(KENNISBANK);
 
     const watIsAutisme = fragmenten.find((f) => f.id === "wat-is-autisme");
+    expect(watIsAutisme).toBeDefined();
     expect(watIsAutisme?.inhoud).toContain("neuroontwikkelingsprofiel");
     expect(watIsAutisme?.inhoud).toContain("sensorische gevoeligheid");
 
     const pgbVoorOuders = fragmenten.find((f) => f.id === "pgb-voor-ouders");
+    expect(pgbVoorOuders).toBeDefined();
     expect(pgbVoorOuders?.inhoud).toContain("ouders of verzorgers zelf zorg of begeleiding kunnen inkopen");
     expect(pgbVoorOuders?.inhoud).toContain("gemeente, het zorgkantoor, de zorgverzekeraar of de Jeugdwet");
   });
