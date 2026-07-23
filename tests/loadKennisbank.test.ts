@@ -33,4 +33,18 @@ describe("laadKennisbank", () => {
     expect(fragmenten).toHaveLength(1);
     expect(fragmenten[0]?.id).toBe("wat-is-autisme");
   });
+
+  it("laadt de daadwerkelijke kennisbank-map in de repository zonder te crashen", () => {
+    const echteKennisbank = join(__dirname, "..", "kennisbank");
+
+    const fragmenten = laadKennisbank(echteKennisbank);
+
+    expect(fragmenten.length).toBeGreaterThan(0);
+    expect(fragmenten.some((f) => f.id.toLowerCase() === "readme")).toBe(false);
+    expect(fragmenten.some((f) => f.id.toLowerCase() === "stijlgids")).toBe(false);
+    fragmenten.forEach((fragment) => {
+      expect(fragment.titel.length).toBeGreaterThan(0);
+      expect(fragment.doelgroep.length).toBeGreaterThan(0);
+    });
+  });
 });
