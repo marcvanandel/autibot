@@ -93,7 +93,7 @@ graph TD
 - Proces en bronnen voor het vullen van de kennisbank met daadwerkelijke autisme-content.
 - Vervolgvraag-suggesties op basis van gerelateerde kennisbank-content.
 - Eventuele overstap naar embedding-gebaseerde retrieval, mocht keyword-search onvoldoende blijken.
-- Overstap van Claude API naar een zelf gehost open-source model voor productiegebruik.
+- Overstap van Claude API naar een zelf gehost open-source model via een lokale lemonade-server. Hier hoort onderzoek bij naar welk model daar geschikt voor is, en een test of dat in de praktijk werkbaar is (snelheid, kwaliteit) op de eigen laptop van de ontwikkelaar.
 - Hosting/deployment buiten de lokale demo.
 
 Belangrijke architectuurkeuzes uit dit ontwerp worden na goedkeuring vastgelegd als losse ADR's in `adr/` (zie `adr/0001-architectuurbeslissingen-vastleggen-met-adrs.md`).
