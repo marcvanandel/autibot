@@ -1,7 +1,7 @@
 ---
 titel: "Autisme op school"
 doelgroep: [ouder-naaste, professional, algemeen]
-bronnen: [Attwood 2006, NVA autisme.nl]
+bronnen: [Attwood 2006, NVA autisme.nl, De Bruin 2004]
 ---
 
 Leerlingen met autisme kunnen op school te maken krijgen met extra belasting door prikkels, sociale complexiteit, onduidelijke verwachtingen en snelle wisselingen in taken of context.

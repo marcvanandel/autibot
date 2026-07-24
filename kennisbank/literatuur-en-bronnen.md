@@ -23,6 +23,8 @@ Peter Vermeulen — *Brein bedriegt: Als autisme niet op autisme lijkt* (Garant,
 
 Peter Vermeulen — *Autisme als contextstoornis* (Garant, 2009) — beschrijft autisme als een stoornis in het gebruik van context bij informatieverwerking. Biedt een theoretisch kader dat bruikbaar is in diagnostiek en begeleiding.
 
+Colette de Bruin — *Geef me de vijf: een praktisch boek voor thuis en op school bij kinderen met autismespectrumstoornissen* (Graviant, 2004) — is een veelgebruikt Nederlandstalig praktijkboek gericht op begeleiding van kinderen met autisme thuis en op school. Het boek is breed erkend als naslagwerk voor ouders, leerkrachten en begeleiders en geldt als standaard in de Nederlandse praktijk.
+
 De Nederlandse Vereniging voor Autisme (NVA) publiceert richtlijnen, brochures en adviesdocumenten over diagnostiek, onderwijs, werk en ondersteuning. De publicaties zijn beschikbaar via [autisme.nl](https://www.autisme.nl).
 
 ## Wetenschappelijke tijdschriften

@@ -1,7 +1,7 @@
 ---
 titel: "Ondersteuning en begeleiding"
 doelgroep: [zelf, ouder-naaste, professional, algemeen]
-bronnen: [NVA autisme.nl, NICE CG128]
+bronnen: [NVA autisme.nl, NICE CG128, De Bruin 2004]
 ---
 
 Ondersteuning en begeleiding bij autisme zijn gericht op het verminderen van belemmeringen in het dagelijks functioneren en het vergroten van passende afstemming tussen persoon en omgeving.
