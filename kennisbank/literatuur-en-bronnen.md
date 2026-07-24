@@ -7,7 +7,9 @@ Dit artikel biedt een gecureerde lijst van betrouwbare literatuur en online bron
 
 ## Standaardwerken en diagnostiek
 
-De *Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition* (DSM-5, APA, 2013) bevat de officiële diagnostische criteria voor ASS zoals die in de westerse psychiatrie worden gehanteerd. Het is het internationale referentiekader voor diagnostiek en onderzoek.
+De *Diagnostic and Statistical Manual of Mental Disorders, Fourth Edition, Text Revision* (DSM-IV-TR, APA, 2000) onderscheidde meerdere afzonderlijke diagnoses onder de noemer 'pervasieve ontwikkelingsstoornissen', waaronder de autistische stoornis, het syndroom van Asperger en PDD-NOS. Deze indeling is relevant als historische context, omdat veel mensen nog een diagnose hebben die op DSM-IV gebaseerd is.
+
+De *Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition* (DSM-5, APA, 2013) bevat de officiële diagnostische criteria voor ASS zoals die in de westerse psychiatrie worden gehanteerd. DSM-5 voegde de afzonderlijke DSM-IV-diagnoses samen tot één overkoepelende diagnose: autismespectrumstoornis (ASS). Het is het internationale referentiekader voor diagnostiek en onderzoek.
 
 De *International Classification of Diseases, 11th Revision* (ICD-11, WHO, 2022) is de internationale ziekteclassificatie van de Wereldgezondheidsorganisatie. ICD-11 bevat de diagnose "Autism Spectrum Disorder" en wordt wereldwijd gebruikt, ook buiten Europa.
 
