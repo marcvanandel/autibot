@@ -21,7 +21,9 @@ export function laadKennisbank(map: string): Fragment[] {
     throw new Error(`Kennisbank-map is leeg: ${map}. Er is minimaal één .md-bestand nodig.`);
   }
 
-  return bestanden.map((bestandsnaam) => {
+  const fragmenten: Fragment[] = [];
+
+  for (const bestandsnaam of bestanden) {
     const pad = join(map, bestandsnaam);
     let ruw: string;
     try {
@@ -30,6 +32,13 @@ export function laadKennisbank(map: string): Fragment[] {
       throw new Error(`Kan bestand niet lezen: ${pad} (${(fout as Error).message})`);
     }
     const { data, content } = matter(ruw);
+
+    // Bestanden zonder frontmatter zijn geen kennisbank-artikelen maar
+    // documentatie voor mensen/agents (bijv. README.md, STIJLGIDS.md) —
+    // die worden overgeslagen in plaats van als fout behandeld.
+    if (Object.keys(data).length === 0) {
+      continue;
+    }
 
     if (typeof data.titel !== "string" || data.titel.trim() === "") {
       throw new Error(`Ontbrekende of lege 'titel' in frontmatter van ${pad}`);
@@ -45,12 +54,20 @@ export function laadKennisbank(map: string): Fragment[] {
       );
     }
 
-    return {
+    fragmenten.push({
       id: basename(bestandsnaam, ".md"),
       titel: data.titel,
       doelgroep,
       inhoud: content.trim(),
       bestandspad: pad,
-    };
-  });
+    });
+  }
+
+  if (fragmenten.length === 0) {
+    throw new Error(
+      `Kennisbank-map bevat geen bruikbare artikelen: ${map}. Er is minimaal één .md-bestand met geldige frontmatter nodig.`,
+    );
+  }
+
+  return fragmenten;
 }
