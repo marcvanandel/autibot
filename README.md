@@ -32,16 +32,18 @@ Een LLM kan vlot en overtuigend klinken, maar ook dingen verzinnen ("hallucinere
 
 ## Status
 
-Er is nu een werkende lokale demo-implementatie (TypeScript/Node.js) die het ontwerp voor de eerste versie (MVP) uitvoert:
+Er is nu een werkende lokale demo-implementatie: een TypeScript/Node.js-backend met een React/Vite/Tailwind-chatinterface, en een instelbare LLM-provider (Claude, of een zelf gehost lokaal model via een OpenAI-compatibele server).
 
 - [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) beschrijft de architectuur, dataflow en scope: een lokaal draaiend prototype dat vragen beantwoordt op basis van een kennisbank van markdown-bestanden.
-- [`adr/`](adr/) bevat Architecture Decision Records (0001 t/m 0007) die de belangrijkste technische keuzes en de motivatie daarachter vastleggen.
+- [`docs/superpowers/specs/2026-07-23-react-chat-ui-design.md`](docs/superpowers/specs/2026-07-23-react-chat-ui-design.md) beschrijft de React/Vite/Tailwind-chatinterface.
+- [`docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md`](docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md) beschrijft de wisselbare LLM-provider.
+- [`adr/`](adr/) bevat Architecture Decision Records (0001 t/m 0010) die de belangrijkste technische keuzes en de motivatie daarachter vastleggen.
 
 Aan de slag:
 
 - `npm install` — installeer de dependencies.
-- `npm run dev` — start de lokale server (op localhost). Om daadwerkelijk antwoorden via Claude te krijgen is een `ANTHROPIC_API_KEY`-omgevingsvariabele nodig.
-- `npm test` — draait de testsuite (23 tests, vitest).
+- `npm run dev` — start de lokale server (op localhost). Standaard wordt Claude gebruikt, waarvoor een `ANTHROPIC_API_KEY`-omgevingsvariabele nodig is; zie [`.env.example`](.env.example) om in plaats daarvan een zelf gehost lokaal model te gebruiken.
+- `npm test` — draait de testsuite (35 tests, vitest).
 - `npm run typecheck` — controleert de TypeScript-types.
 
 ## Licentie

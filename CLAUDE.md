@@ -4,12 +4,12 @@ Dit bestand biedt richtlijnen aan Claude Code (claude.ai/code) bij het werken me
 
 ## Status van het project
 
-Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM, die antwoorden geeft op basis van geselecteerde teksten over ASS (Autisme Spectrum Stoornis). Er is nu een werkende lokale demo-implementatie (TypeScript/Node.js) die het ontwerp uit [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) uitvoert: vijf samenwerkende onderdelen (Kennisbank, Retriever, Orchestrator, LLMProvider, een lokale webserver/UI) en een testsuite van 23 tests.
+Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM, die antwoorden geeft op basis van geselecteerde teksten over ASS (Autisme Spectrum Stoornis). Er is nu een werkende lokale demo-implementatie die het ontwerp uit [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) uitvoert: vijf samenwerkende onderdelen (Kennisbank, Retriever, Orchestrator, LLMProvider, een lokale webserver met een React/Vite/Tailwind-chatinterface, zie [`docs/superpowers/specs/2026-07-23-react-chat-ui-design.md`](docs/superpowers/specs/2026-07-23-react-chat-ui-design.md)) en een testsuite van 35 tests. De LLMProvider is instelbaar — Claude of een zelf gehost lokaal model via een OpenAI-compatibele server — zie [`docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md`](docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md) en `.env.example`.
 
 Belangrijke commando's:
 
 - `npm install` — installeer de dependencies.
-- `npm run dev` — start de lokale server (localhost); vereist de omgevingsvariabele `ANTHROPIC_API_KEY` om daadwerkelijk antwoorden via Claude te genereren.
+- `npm run dev` — start de lokale server (localhost); vereist standaard de omgevingsvariabele `ANTHROPIC_API_KEY` om daadwerkelijk antwoorden via Claude te genereren, tenzij `LLM_PROVIDER=lokaal` is ingesteld (zie `.env.example`).
 - `npm test` — draait de testsuite (vitest).
 - `npm run typecheck` — controleert de TypeScript-types (`tsc --noEmit`).
 
