@@ -29,6 +29,16 @@ Colette de Bruin — *Geef me de vijf: een praktisch boek voor thuis en op schoo
 
 De Nederlandse Vereniging voor Autisme (NVA) publiceert richtlijnen, brochures en adviesdocumenten over diagnostiek, onderwijs, werk en ondersteuning. De publicaties zijn beschikbaar via [autisme.nl](https://www.autisme.nl).
 
+## Autisme bij vrouwen en meisjes
+
+Veel vroeg autismeonderzoek is uitgevoerd met overwegend mannelijke deelnemers, wat heeft geleid tot diagnostische criteria en beschrijvingen die minder goed aansluiten op de presentatie van autisme bij vrouwen en meisjes. De afgelopen decennia is hiervoor meer wetenschappelijke aandacht gekomen.
+
+Sarah Hendrickx — *Women and Girls with Autism Spectrum Disorder: Understanding Life Experiences from Early Childhood to Old Age* (Jessica Kingsley Publishers, 2015) — geeft een uitgebreid overzicht van hoe autisme zich bij vrouwen en meisjes kan presenteren over de gehele levensloop. Het boek combineert wetenschappelijke inzichten met ervaringsverhalen en is geschikt voor zowel professionals als mensen met autisme en hun naasten.
+
+Rudy Simone — *Aspergirls: Empowering Females with Asperger Syndrome* (Jessica Kingsley Publishers, 2010) — richt zich specifiek op vrouwen en meisjes met het voormalige Asperger-syndroom. Het boek biedt praktische informatie over relaties, werk, zelfzorg en identiteit, en is mede gebaseerd op interviews met vrouwen met autisme.
+
+Liane Holliday Willey — *Pretending to be Normal: Living with Asperger's Syndrome* (Jessica Kingsley Publishers, 1999; herziene druk 2014) — is een autobiografisch werk waarin de auteur haar ervaringen met maskeren, sociale aanpassing en de zoektocht naar diagnose beschrijft. Het boek is een van de eerste en meest geciteerde persoonlijke getuigenissen van een vrouw met autisme.
+
 ## Wetenschappelijke tijdschriften
 
 Het *Journal of Autism and Developmental Disorders* (JADD, Springer) is een van de oudste en meest geciteerde wetenschappelijke tijdschriften op het gebied van autismeonderzoek. Het bevat empirische studies over diagnostiek, cognitie, gedrag en interventies.
