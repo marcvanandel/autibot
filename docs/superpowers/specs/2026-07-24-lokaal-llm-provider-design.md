@@ -76,7 +76,7 @@ LOKAAL_LLM_BASE_URL=http://localhost:8000/v1   # lemonade-server endpoint
 LOKAAL_LLM_MODEL=qwen2.5-7b-instruct           # het in lemonade-server geladen model
 ```
 
-Beide providers se instellingen mogen tegelijk in `.env` staan (bewuste keuze: wisselen is dan alleen `LLM_PROVIDER` aanpassen en herstarten, precies het "makkelijk wisselen tussen ontwikkeling en demo"-doel). `.env` wordt geladen via Node's ingebouwde `--env-file-if-exists=.env`-vlag (geen nieuwe dependency zoals `dotenv`); het `dev`-script in `package.json` roept `tsx` voortaan aan met die vlag. Een `.env.example`-bestand (wel gecommit, met placeholder-waarden) documenteert welke variabelen nodig zijn.
+Beide providers' instellingen mogen tegelijk in `.env` staan (bewuste keuze: wisselen is dan alleen `LLM_PROVIDER` aanpassen en herstarten, precies het "makkelijk wisselen tussen ontwikkeling en demo"-doel). `.env` wordt geladen via Node's ingebouwde `--env-file-if-exists=.env`-vlag (geen nieuwe dependency zoals `dotenv`); het `dev`-script in `package.json` roept `tsx` voortaan aan met die vlag. Een `.env.example`-bestand (wel gecommit, met placeholder-waarden) documenteert welke variabelen nodig zijn.
 
 ## Dataflow
 
