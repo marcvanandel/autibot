@@ -45,7 +45,7 @@ export function Chatvenster({ doelgroep, gesprek, onVraagVersturen }: Chatvenste
         <button
           type="submit"
           disabled={!doelgroep || bezig}
-          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
+          className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
         >
           Vraag
         </button>
