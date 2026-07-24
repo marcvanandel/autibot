@@ -1,5 +1,4 @@
 import type { Doelgroep } from "../types";
-import logoUrl from "../../assets/branding/a-chat-star-logo.svg";
 
 interface Optie {
   waarde: Doelgroep;
@@ -22,7 +21,7 @@ export function Zijbalk({ doelgroep, onKiezen }: ZijbalkProps) {
   return (
     <aside className="w-64 shrink-0 border-r border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-900">
       <div className="mb-4 flex items-center gap-3">
-        <img src={logoUrl} alt="Autibot logo" className="h-9 w-9" />
+        <img src="/branding/a-chat-star-logo.svg" alt="Autibot logo" className="h-9 w-9" />
         <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Autibot</h1>
       </div>
       <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">Voor wie zoek je deze informatie?</p>
@@ -34,7 +33,7 @@ export function Zijbalk({ doelgroep, onKiezen }: ZijbalkProps) {
             onClick={() => onKiezen(optie.waarde)}
             className={`rounded-lg px-3 py-2 text-left text-sm transition-colors ${
               doelgroep === optie.waarde
-                ? "bg-blue-600 text-white"
+                ? "bg-violet-600 text-white"
                 : "bg-white text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
             }`}
           >
