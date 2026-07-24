@@ -8,7 +8,7 @@ interface BerichtProps {
 export function Bericht({ item }: BerichtProps) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="ml-auto max-w-lg rounded-lg bg-blue-600 px-4 py-2 text-sm text-white">
+      <div className="ml-auto max-w-lg rounded-lg bg-violet-600 px-4 py-2 text-sm text-white">
         {item.vraag}
       </div>
       {item.bezig && <LaadIndicator />}
