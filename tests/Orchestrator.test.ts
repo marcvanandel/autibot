@@ -72,7 +72,12 @@ describe("Orchestrator", () => {
 });
 
 describe("Orchestrator met KeywordRetriever (golden scenario's)", () => {
-  const fragmenten = laadKennisbank(join(__dirname, "fixtures", "kennisbank-geldig"));
+  // Gebruikt een fixture met een realistisch aantal documenten (vergelijkbaar met de
+  // echte kennisbank), niet de minimale 2-document kennisbank-geldig-fixture: de
+  // RELEVANTIE_DREMPEL-score is corpusgrootte-afhankelijk (meer documenten -> hogere IDF
+  // voor een zeldzame term), dus een te kleine fixture geeft geen betrouwbaar beeld van
+  // het gedrag tegen de echte kennisbank. Zie ADR-0009.
+  const fragmenten = laadKennisbank(join(__dirname, "fixtures", "kennisbank-realistisch"));
   const retriever = new KeywordRetriever(fragmenten);
 
   it("geeft bij een gedekte vraag het antwoord van de LLMProvider, gebaseerd op de juiste bron", async () => {

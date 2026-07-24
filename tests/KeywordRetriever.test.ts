@@ -59,3 +59,75 @@ describe("KeywordRetriever", () => {
     expect(resultaten.find((r) => r.id === "pgb-voor-ouders")).toBeDefined();
   });
 });
+
+// Grotere, kortere-documenten-fixture: reproduceert een regressie die met de kleine
+// FRAGMENTEN-set hierboven niet zichtbaar wordt. Bij genoeg korte documenten kunnen
+// hoogfrequente verbindingswoorden ("wat", "is", "de", "van", "om", "te") in een vraag
+// een hoge score opleveren puur door woordoverlap, los van inhoudelijke relevantie.
+const KORTE_DOCUMENTEN: Fragment[] = [
+  {
+    id: "wat-is-autisme",
+    titel: "Wat is autisme?",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "Autisme is een ontwikkelingsstoornis die van invloed is op hoe iemand de wereld waarneemt en ermee omgaat.",
+    bestandspad: "wat-is-autisme.md",
+  },
+  {
+    id: "overprikkeling",
+    titel: "Omgaan met overprikkeling",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "Overprikkeling is een toestand waarin de hoeveelheid of intensiteit van prikkels groter is dan iemand op dat moment goed kan verwerken. Wat effectief is, verschilt per persoon.",
+    bestandspad: "overprikkeling.md",
+  },
+  {
+    id: "vrouwen-en-meisjes",
+    titel: "Autisme bij vrouwen en meisjes",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "Veel onderzoek naar autisme is historisch uitgevoerd met overwegend mannelijke deelnemers, waardoor de kenmerken van vrouwen en meisjes met autisme lange tijd onderbelicht zijn gebleven.",
+    bestandspad: "vrouwen-en-meisjes.md",
+  },
+  {
+    id: "diagnose",
+    titel: "Diagnose van autisme",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "De diagnose van autisme wordt gesteld door een gekwalificeerde professional aan de hand van gedragsobservatie en ontwikkelingsgeschiedenis.",
+    bestandspad: "diagnose.md",
+  },
+  {
+    id: "ondersteuning",
+    titel: "Ondersteuning en begeleiding",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "Ondersteuning en begeleiding voor mensen met autisme kan bestaan uit praktische hulp, coaching of therapie, afgestemd op de individuele behoefte.",
+    bestandspad: "ondersteuning.md",
+  },
+  {
+    id: "communicatie",
+    titel: "Communicatie en autisme",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "Communicatie kan voor mensen met autisme anders verlopen, bijvoorbeeld door een voorkeur voor letterlijke taal in plaats van impliciete sociale signalen.",
+    bestandspad: "communicatie.md",
+  },
+];
+
+describe("KeywordRetriever met een grotere set korte documenten", () => {
+  it("geeft een vraag die alleen uit verbindingswoorden bestaat geen score die relevantie suggereert", () => {
+    const retriever = new KeywordRetriever(KORTE_DOCUMENTEN);
+
+    const relevanteResultaten = retriever.search("Wat is autisme?", "algemeen");
+    const irrelevanteResultaten = retriever.search(
+      "Wat is de hoofdstad van Frankrijk?",
+      "algemeen",
+    );
+
+    const hoogsteRelevanteScore = relevanteResultaten[0]?.score ?? 0;
+    const hoogsteIrrelevanteScore = irrelevanteResultaten[0]?.score ?? 0;
+
+    expect(hoogsteIrrelevanteScore).toBeLessThan(hoogsteRelevanteScore);
+  });
+});
