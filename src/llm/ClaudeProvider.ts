@@ -37,6 +37,7 @@ export class ClaudeProvider implements LLMProvider {
       );
     }
 
+    console.log("[ClaudeProvider] Antwoord ontvangen van Claude.");
     return { tekst: tekstBlok.text, bronnen: fragmenten };
   }
 }

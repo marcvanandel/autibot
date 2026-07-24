@@ -17,6 +17,8 @@ describe("OpenAICompatibleProvider", () => {
       },
     };
 
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
     const provider = new OpenAICompatibleProvider(
       { baseURL: "http://localhost:8000/v1", model: "test-model" },
       nepClient as any,
@@ -34,6 +36,11 @@ describe("OpenAICompatibleProvider", () => {
       { role: "system", content: expect.any(String) },
       { role: "user", content: expect.any(String) },
     ]);
+    expect(logSpy).toHaveBeenCalledWith(
+      "[OpenAICompatibleProvider] Antwoord ontvangen van het lokale model.",
+    );
+
+    logSpy.mockRestore();
   });
 
   it("gooit een fout als het lokale model geen tekstantwoord geeft", async () => {

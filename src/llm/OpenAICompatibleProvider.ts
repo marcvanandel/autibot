@@ -41,6 +41,7 @@ export class OpenAICompatibleProvider implements LLMProvider {
       );
     }
 
+    console.log("[OpenAICompatibleProvider] Antwoord ontvangen van het lokale model.");
     return { tekst, bronnen: fragmenten };
   }
 }

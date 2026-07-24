@@ -1,12 +1,18 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { kiesLLMProvider } from "../src/llm/kiesLLMProvider";
 import { ClaudeProvider } from "../src/llm/ClaudeProvider";
 import { OpenAICompatibleProvider } from "../src/llm/OpenAICompatibleProvider";
 
 describe("kiesLLMProvider", () => {
-  it("geeft een ClaudeProvider terug als LLM_PROVIDER 'claude' is", () => {
+  it("geeft een ClaudeProvider terug als LLM_PROVIDER 'claude' is, en logt welke provider actief is", () => {
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
     const provider = kiesLLMProvider({ LLM_PROVIDER: "claude" });
+
     expect(provider).toBeInstanceOf(ClaudeProvider);
+    expect(logSpy).toHaveBeenCalledWith('LLM-provider actief: "claude"');
+
+    logSpy.mockRestore();
   });
 
   it("geeft een ClaudeProvider terug als LLM_PROVIDER ontbreekt (default)", () => {
@@ -14,13 +20,21 @@ describe("kiesLLMProvider", () => {
     expect(provider).toBeInstanceOf(ClaudeProvider);
   });
 
-  it("geeft een OpenAICompatibleProvider terug als LLM_PROVIDER 'lokaal' is, met geldige config", () => {
+  it("geeft een OpenAICompatibleProvider terug als LLM_PROVIDER 'lokaal' is, met geldige config, en logt welke provider actief is", () => {
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
     const provider = kiesLLMProvider({
       LLM_PROVIDER: "lokaal",
       LOKAAL_LLM_BASE_URL: "http://localhost:8000/v1",
       LOKAAL_LLM_MODEL: "qwen2.5-7b-instruct",
     });
+
     expect(provider).toBeInstanceOf(OpenAICompatibleProvider);
+    expect(logSpy).toHaveBeenCalledWith(
+      'LLM-provider actief: "lokaal" (model=qwen2.5-7b-instruct, baseURL=http://localhost:8000/v1)',
+    );
+
+    logSpy.mockRestore();
   });
 
   it("gooit een fout als LOKAAL_LLM_BASE_URL ontbreekt terwijl LLM_PROVIDER 'lokaal' is", () => {

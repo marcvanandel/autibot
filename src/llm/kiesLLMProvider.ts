@@ -9,6 +9,7 @@ export function kiesLLMProvider(
 
   switch (providerNaam) {
     case "claude":
+      console.log('LLM-provider actief: "claude"');
       return new ClaudeProvider();
 
     case "lokaal": {
@@ -24,6 +25,7 @@ export function kiesLLMProvider(
         throw new Error("LOKAAL_LLM_MODEL ontbreekt terwijl LLM_PROVIDER=lokaal is ingesteld.");
       }
 
+      console.log(`LLM-provider actief: "lokaal" (model=${model}, baseURL=${baseURL})`);
       return new OpenAICompatibleProvider({ baseURL, model });
     }
 

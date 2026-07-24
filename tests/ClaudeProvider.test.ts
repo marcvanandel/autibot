@@ -18,6 +18,8 @@ describe("ClaudeProvider", () => {
       },
     };
 
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
     const provider = new ClaudeProvider(nepClient as any);
     const antwoord = await provider.answer("Een vraag", fragmenten, "algemeen");
 
@@ -28,6 +30,9 @@ describe("ClaudeProvider", () => {
     );
     const aanroep = nepClient.messages.create.mock.calls[0][0];
     expect(aanroep.temperature).toBeUndefined();
+    expect(logSpy).toHaveBeenCalledWith("[ClaudeProvider] Antwoord ontvangen van Claude.");
+
+    logSpy.mockRestore();
   });
 
   it("gooit een fout als Claude geen tekstantwoord geeft (bijv. weigering of leeg antwoord)", async () => {
