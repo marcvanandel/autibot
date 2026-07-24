@@ -1,6 +1,7 @@
 ---
 titel: "Omgaan met overprikkeling"
 doelgroep: [zelf, ouder-naaste, professional]
+bronnen: [JADD sensorisch onderzoek, Autism Research]
 ---
 
 Overprikkeling is een toestand waarin de hoeveelheid of intensiteit van prikkels groter is dan iemand op dat moment goed kan verwerken.

@@ -1,6 +1,7 @@
 ---
 titel: "Autisme op het werk"
 doelgroep: [zelf, professional, algemeen]
+bronnen: [Attwood 2006, NVA autisme.nl, Autisme Centraal]
 ---
 
 Autisme kan invloed hebben op het functioneren op de werkplek, onder andere door verschillen in communicatie, prikkelverwerking, taakaanpak en omgaan met verandering.

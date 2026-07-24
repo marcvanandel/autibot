@@ -1,6 +1,7 @@
 ---
 titel: "Kenmerken van autisme"
 doelgroep: [zelf, ouder-naaste, professional, algemeen]
+bronnen: [DSM-5, Attwood 2006]
 ---
 
 Autisme is een neuroontwikkelingsprofiel dat samenhangt met verschillen in informatieverwerking, communicatie, sociale interactie en prikkelverwerking.

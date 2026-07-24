@@ -1,6 +1,7 @@
 ---
 titel: "Diagnose van autisme"
 doelgroep: [zelf, ouder-naaste, professional, algemeen]
+bronnen: [DSM-5, ICD-11, NVA autisme.nl]
 ---
 
 Een diagnose autisme wordt gesteld door gekwalificeerde professionals, zoals een psycholoog of psychiater, op basis van diagnostisch onderzoek.

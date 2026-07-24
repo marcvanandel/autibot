@@ -229,6 +229,37 @@ Loop vóór commit of PR deze checklist na:
 - Zijn er geen harde regeleinden midden in alinea's?
 - Is de tekst bruikbaar als bron voor retrieval en chatbot-antwoorden?
 
+## Bronverwijzingen en het `bronnen`-veld
+
+Kennisbankartikelen kunnen een optioneel frontmatter-veld `bronnen` bevatten. Dit veld bereidt de kennisbank voor op toekomstige citatiefunctionaliteit en maakt duidelijk welke literatuur of bronnen ten grondslag liggen aan de inhoud van het artikel.
+
+### Wanneer een `bronnen`-veld toevoegen
+
+Voeg het veld toe wanneer de inhoud van het artikel aantoonbaar steunt op specifieke standaardwerken, diagnostische richtlijnen of gezaghebbende online bronnen. Verplicht is het niet; laat het weg als er geen duidelijke bronkoppeling is.
+
+### Hoe bronnen benoemen
+
+Gebruik een korte label die auteur en jaar combineert, of een organisatienaam:
+- auteur en jaar: `Baron-Cohen 1995`, `Frith 2003`, `Attwood 2006`, `Vermeulen 2009`
+- standaard of richtlijn: `DSM-5`, `ICD-11`, `NICE CG128`
+- organisatie: `NVA autisme.nl`, `Autisme Centraal`
+
+Gebruik altijd dezelfde notatie voor dezelfde bron, zodat labels consistent zijn over alle artikelen.
+
+### Centrale literatuurlijst
+
+Het artikel `literatuur-en-bronnen.md` is de centrale referentie voor alle bronnen in de kennisbank. Voeg een bron alleen toe als label in het `bronnen`-veld als die bron beschreven staat in `literatuur-en-bronnen.md`.
+
+### Voorbeeld frontmatter met bronnen
+
+```yaml
+---
+titel: "Wat is autisme?"
+doelgroep: [zelf, ouder-naaste, professional, algemeen]
+bronnen: [DSM-5, ICD-11, Baron-Cohen 1995, Frith 2003, NVA autisme.nl]
+---
+```
+
 ## Mini-sjabloon voor nieuwe artikelen
 
 ```markdown

@@ -1,6 +1,7 @@
 ---
 titel: "Communicatie en autisme"
 doelgroep: [zelf, ouder-naaste, professional, algemeen]
+bronnen: [Baron-Cohen 1995, Vermeulen 2009]
 ---
 
 Bij autisme kan communicatie anders verlopen dan in veel sociale situaties wordt verwacht. Dat heeft onder andere te maken met verschillen in taalverwerking, interpretatie van sociale signalen en behoefte aan expliciete informatie.
