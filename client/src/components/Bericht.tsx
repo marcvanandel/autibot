@@ -19,7 +19,7 @@ export function Bericht({ item }: BerichtProps) {
       )}
       {!item.bezig && item.antwoord && (
         <div className="max-w-lg rounded-lg bg-gray-100 px-4 py-2 text-sm text-gray-800 dark:bg-gray-800 dark:text-gray-100">
-          <p>{item.antwoord.tekst}</p>
+          <p className="whitespace-pre-wrap break-words">{item.antwoord.tekst}</p>
           <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
             {item.antwoord.bronnen.length > 0
               ? `Bronnen: ${item.antwoord.bronnen.map((bron) => bron.titel).join(", ")}`
