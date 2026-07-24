@@ -1,6 +1,7 @@
 ---
 titel: "Wat is autisme?"
 doelgroep: [zelf, ouder-naaste, professional, algemeen]
+bronnen: [DSM-5, ICD-11, Baron-Cohen 1995, Frith 2003, NVA autisme.nl]
 ---
 
 Autisme, ook wel autismespectrumstoornis (ASS) genoemd, is een neuroontwikkelingsprofiel dat samenhangt met verschillen in informatieverwerking, communicatie, sociale interactie en prikkelverwerking.
