@@ -1,5 +1,9 @@
 # Autibot
 
+<p align="center">
+  <img src="assets/branding/a-chat-star-logo.svg" alt="Autibot logo" width="128" height="128" />
+</p>
+
 Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM (Large Language Model), die vragen beantwoordt over ASS (Autisme Spectrum Stoornis) — voor mensen met autisme zelf, voor ouders/naasten, voor professionals en voor een breed publiek.
 
 ## Over Autibot
@@ -32,7 +36,7 @@ Een LLM kan vlot en overtuigend klinken, maar ook dingen verzinnen ("hallucinere
 
 ## Status
 
-Er is nu een werkende lokale demo-implementatie: een TypeScript/Node.js-backend met een React/Vite/Tailwind-chatinterface, en een instelbare LLM-provider (Claude, of een zelf gehost lokaal model via een OpenAI-compatibele server).
+Er is nu een werkende lokale demo-implementatie: een TypeScript/Node.js-backend met een React/Vite/Tailwind-chatinterface, en een instelbare LLM-provider (Claude, of een zelf gehost lokaal model via OpenAI-compatibele API).
 
 - [`docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md`](docs/superpowers/specs/2026-07-22-grounded-qa-chatbot-design.md) beschrijft de architectuur, dataflow en scope: een lokaal draaiend prototype dat vragen beantwoordt op basis van een kennisbank van markdown-bestanden.
 - [`docs/superpowers/specs/2026-07-23-react-chat-ui-design.md`](docs/superpowers/specs/2026-07-23-react-chat-ui-design.md) beschrijft de React/Vite/Tailwind-chatinterface.
@@ -42,7 +46,7 @@ Er is nu een werkende lokale demo-implementatie: een TypeScript/Node.js-backend 
 Aan de slag:
 
 - `npm install` — installeer de dependencies.
-- `npm run dev` — start de lokale server (op localhost). Standaard wordt Claude gebruikt, waarvoor een `ANTHROPIC_API_KEY`-omgevingsvariabele nodig is; zie [`.env.example`](.env.example) om in plaats daarvan een zelf gehost lokaal model te gebruiken.
+- `npm run dev` — start de lokale server (op localhost). Standaard wordt Claude gebruikt, waarvoor een `ANTHROPIC_API_KEY`-omgevingsvariabele nodig is; zie [`.env.example`](.env.example) om in plaats daarvan een lokaal model te gebruiken.
 - `npm test` — draait de testsuite (35 tests, vitest).
 - `npm run typecheck` — controleert de TypeScript-types.
 
