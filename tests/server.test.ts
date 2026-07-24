@@ -6,6 +6,9 @@ import { maakServer } from "../src/server/server";
 import type { Orchestrator } from "../src/orchestrator/Orchestrator";
 
 const PUBLIC_MAP = join(__dirname, "..", "src", "server", "public");
+// src/server/public/ is Vite build output (gitignored, niet aanwezig zonder voorafgaande
+// `vite build`); deze test gebruikt daarom een eigen, altijd-aanwezige fixture-map.
+const PUBLIC_FIXTURE = join(__dirname, "fixtures", "public");
 
 describe("server", () => {
   let server: ReturnType<typeof maakServer> | undefined;
@@ -51,7 +54,7 @@ describe("server", () => {
 
   it("serveert index.html op GET /", async () => {
     const fakeOrchestrator = { beantwoord: vi.fn() } as unknown as Orchestrator;
-    server = maakServer(fakeOrchestrator, PUBLIC_MAP);
+    server = maakServer(fakeOrchestrator, PUBLIC_FIXTURE);
     await new Promise<void>((resolve) => server!.listen(0, resolve));
     const poort = (server.address() as AddressInfo).port;
 
