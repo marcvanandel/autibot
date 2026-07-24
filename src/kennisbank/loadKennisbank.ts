@@ -4,11 +4,15 @@ import matter from "gray-matter";
 import type { Fragment, Doelgroep } from "./types";
 
 const GELDIGE_DOELGROEPEN: Doelgroep[] = ["zelf", "ouder-naaste", "professional", "algemeen"];
+const OVER_TE_SLAAN_BESTANDEN = new Set(["readme", "stijlgids"]);
 
 export function laadKennisbank(map: string): Fragment[] {
   let bestanden: string[];
   try {
-    bestanden = readdirSync(map).filter((naam: string) => extname(naam) === ".md");
+    bestanden = readdirSync(map).filter(
+      (naam: string) =>
+        extname(naam) === ".md" && !OVER_TE_SLAAN_BESTANDEN.has(basename(naam, ".md").toLowerCase()),
+    );
   } catch (fout) {
     throw new Error(`Kan kennisbank-map niet lezen: ${map} (${(fout as Error).message})`);
   }

@@ -3,6 +3,13 @@ import { join } from "node:path";
 import { laadKennisbank } from "../src/kennisbank/loadKennisbank";
 
 const FIXTURES = join(__dirname, "fixtures");
+const KENNISBANK = join(__dirname, "..", "kennisbank");
+// Deze twee herschreven kennisbankartikelen zijn bewust opgezet als vijf compacte alinea's.
+const MIN_VERWACHTE_PARAGRAFEN_PER_ARTIKEL = 5;
+
+function telParagrafen(inhoud: string): number {
+  return inhoud.split(/\r?\n\s*\r?\n/).filter((paragraaf) => paragraaf.trim() !== "").length;
+}
 
 describe("laadKennisbank", () => {
   it("laadt geldige markdown-bestanden met frontmatter in fragmenten", () => {
@@ -27,7 +34,27 @@ describe("laadKennisbank", () => {
     expect(() => laadKennisbank(join(FIXTURES, "kennisbank-ongeldig-doelgroep"))).toThrow(/doelgroep/i);
   });
 
-  it("negeert een README-bestand zonder frontmatter", () => {
+  it("laadt kennisbankbestanden met de verwachte repository-inhoud", () => {
+    const fragmenten = laadKennisbank(KENNISBANK);
+
+    const watIsAutisme = fragmenten.find((f) => f.id === "wat-is-autisme");
+    expect(watIsAutisme).toBeDefined();
+    expect(telParagrafen(watIsAutisme!.inhoud)).toBeGreaterThanOrEqual(MIN_VERWACHTE_PARAGRAFEN_PER_ARTIKEL);
+    expect(watIsAutisme?.inhoud).toContain("neuroontwikkelingsprofiel");
+    expect(watIsAutisme?.inhoud).toContain("Autisme is aangeboren");
+    expect(watIsAutisme?.inhoud).toContain("sensorische gevoeligheid");
+    expect(watIsAutisme?.inhoud).toContain("Autisme wordt beschreven als een spectrum");
+
+    const pgbVoorOuders = fragmenten.find((f) => f.id === "pgb-voor-ouders");
+    expect(pgbVoorOuders).toBeDefined();
+    expect(telParagrafen(pgbVoorOuders!.inhoud)).toBeGreaterThanOrEqual(MIN_VERWACHTE_PARAGRAFEN_PER_ARTIKEL);
+    expect(pgbVoorOuders?.inhoud).toContain("ouders of verzorgers zelf zorg of begeleiding kunnen inkopen");
+    expect(pgbVoorOuders?.inhoud).toContain("de gemeente, het zorgkantoor, de zorgverzekeraar of de Jeugdwet");
+    expect(pgbVoorOuders?.inhoud).toContain("Aan een pgb zijn regels verbonden");
+    expect(pgbVoorOuders?.inhoud).toContain("per financieringsvorm");
+  });
+
+  it("negeert README- en stijlgidsbestanden zonder frontmatter", () => {
     const fragmenten = laadKennisbank(join(FIXTURES, "kennisbank-met-readme"));
 
     expect(fragmenten).toHaveLength(1);
