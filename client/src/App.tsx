@@ -8,6 +8,12 @@ export function App() {
   const [doelgroep, setDoelgroep] = useState<Doelgroep | null>(null);
   const [gesprek, setGesprek] = useState<GesprekItem[]>([]);
 
+  function handleDoelgroepKiezen(nieuweDoelgroep: Doelgroep) {
+    if (nieuweDoelgroep === doelgroep) return;
+    setDoelgroep(nieuweDoelgroep);
+    setGesprek([]);
+  }
+
   async function handleVraagVersturen(vraag: string) {
     if (!doelgroep) return;
     const id = crypto.randomUUID();
@@ -28,7 +34,7 @@ export function App() {
 
   return (
     <div className="flex h-screen bg-white dark:bg-gray-950">
-      <Zijbalk doelgroep={doelgroep} onKiezen={setDoelgroep} />
+      <Zijbalk doelgroep={doelgroep} onKiezen={handleDoelgroepKiezen} />
       <Chatvenster doelgroep={doelgroep} gesprek={gesprek} onVraagVersturen={handleVraagVersturen} />
     </div>
   );
