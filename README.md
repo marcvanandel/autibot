@@ -16,6 +16,10 @@ Autibot kan onvolledige of onjuiste antwoorden geven. Gebruik antwoorden niet al
 
 Vragen worden verwerkt om antwoord te kunnen geven. Deel daarom geen onnodige persoonsgegevens of gevoelige details die direct herleidbaar zijn tot een persoon.
 
+In de huidige demo kan het systeem nog niet zonder publieke cloudservices voor antwoordgeneratie. Daarom is terughoudendheid met persoonlijke informatie nu extra belangrijk.
+
+Het doel voor een latere productfase is om privacy en persoonlijke veiligheid verder te versterken, met expliciete waarborgen rond gegevensdeling en met zo min mogelijk opslag of historie van persoonlijke informatie.
+
 ### Verwachtingen en grenzen
 
 Je kunt meestal wel verwachten: Nederlandstalige uitleg over ASS op basis van de kennisbank.

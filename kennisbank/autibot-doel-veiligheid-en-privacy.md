@@ -26,7 +26,10 @@ Gebruik Autibot als informatiehulp en controleer belangrijke conclusies bij betr
 ## Q&A: Hoe zit het met privacy?
 
 ### Wat gebeurt er met vragen die ik stel?
-Autibot verwerkt vragen om een antwoord te kunnen genereren. De precieze opslag en logging hangen af van de technische inrichting van de beheerder van de gebruikte Autibot-omgeving.
+Autibot verwerkt vragen om een antwoord te kunnen genereren. In de huidige demo is antwoordgeneratie nog afhankelijk van publieke cloudservices en hangen opslag en logging af van de technische inrichting van de beheerder van de gebruikte Autibot-omgeving.
+
+### Wat is het privacyperspectief voor het uiteindelijke product?
+De beoogde richting is om privacy en persoonlijke veiligheid verder te versterken, met expliciete waarborgen voor het delen van persoonsgegevens en met zo min mogelijk opslag of historie van persoonlijke informatie.
 
 ### Wat is verstandig om wel en niet te delen?
 Deel bij voorkeur alleen informatie die nodig is voor je vraag. Vermijd onnodige persoonsgegevens en direct herleidbare of zeer gevoelige medische details.
@@ -40,4 +43,3 @@ Autibot kan antwoorden geven over algemene ASS-onderwerpen die in de kennisbank 
 
 ### Waar is Autibot niet geschikt voor?
 Autibot is niet geschikt voor diagnose, persoonlijk behandeladvies, juridische beoordeling of spoedsituaties. Autibot heeft ook geen gegarandeerd complete of realtime kennis buiten de ingestelde bronnen.
-
