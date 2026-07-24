@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM (Large Language Model), die vragen beantwoordt over ASS (Autisme Spectrum Stoornis) — voor mensen met autisme zelf, voor ouders/naasten, voor professionals en voor een breed publiek.",
   "scripts": {
-    "dev": "concurrently \"vite build --watch --config client/vite.config.ts\" \"tsx src/index.ts\"",
+    "dev": "concurrently \"vite build --watch --config client/vite.config.ts\" \"tsx --env-file-if-exists=.env src/index.ts\"",
     "test": "vitest run",
     "typecheck": "tsc --noEmit && tsc --noEmit -p client/tsconfig.json"
   },

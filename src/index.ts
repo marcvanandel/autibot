@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { laadKennisbank } from "./kennisbank/loadKennisbank";
 import { KeywordRetriever } from "./retriever/KeywordRetriever";
-import { ClaudeProvider } from "./llm/ClaudeProvider";
+import { kiesLLMProvider } from "./llm/kiesLLMProvider";
 import { Orchestrator } from "./orchestrator/Orchestrator";
 import { maakServer } from "./server/server";
 
@@ -12,7 +12,7 @@ const POORT = Number(process.env.POORT ?? 3000);
 function start(): void {
   const fragmenten = laadKennisbank(KENNISBANK_MAP);
   const retriever = new KeywordRetriever(fragmenten);
-  const llmProvider = new ClaudeProvider();
+  const llmProvider = kiesLLMProvider();
   const orchestrator = new Orchestrator(retriever, llmProvider);
 
   const server = maakServer(orchestrator, PUBLIC_MAP);
