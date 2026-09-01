@@ -9,6 +9,26 @@ describe("bouwSystemPrompt", () => {
     expect(prompt).toContain("uitsluitend op basis van de context");
     expect(prompt).toContain("vaktaal");
   });
+
+  it("wijst voor 'professional' expliciet op een professionele toon", () => {
+    const prompt = bouwSystemPrompt("professional");
+
+    expect(prompt).toContain("professioneel");
+  });
+
+  it("wijst voor 'zelf' op een korte, informele toon", () => {
+    const prompt = bouwSystemPrompt("zelf");
+
+    expect(prompt).toContain("kort");
+    expect(prompt).toContain("informeel");
+  });
+
+  it("wijst voor 'ouder-naaste' op een volwassen aanspreektoon, minder specialistisch dan voor professionals", () => {
+    const prompt = bouwSystemPrompt("ouder-naaste");
+
+    expect(prompt).toContain("volwassen");
+    expect(prompt).toContain("minder specialistisch");
+  });
 });
 
 describe("bouwGebruikersprompt", () => {

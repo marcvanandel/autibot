@@ -2,11 +2,11 @@ import type { Doelgroep } from "../kennisbank/types";
 import type { GevondenFragment } from "../retriever/Retriever";
 
 const TOONINSTRUCTIE_PER_DOELGROEP: Record<Doelgroep, string> = {
-  zelf: "Spreek de gebruiker direct aan en gebruik concrete, toegankelijke taal.",
+  zelf: "Antwoord kort en informeel, alsof je het tegen een kind van 10 jaar zegt: streef naar 2 à 3 zinnen, tenzij de vraag echt meer toelichting vereist. Spreek de gebruiker direct aan en gebruik concrete, toegankelijke taal.",
   "ouder-naaste":
-    "Leg uit hoe dit voor een naaste met autisme kan gelden en wat een ouder/naaste concreet kan doen.",
+    "Spreek de lezer aan als volwassene, in heldere taal zonder vakjargon — minder specialistisch dan de toon voor een professional. Leg uit hoe dit voor een naaste met autisme kan gelden en wat een ouder/naaste concreet kan doen.",
   professional:
-    "Gebruik vaktaal waar relevant en verwijs naar onderliggende criteria of bronnen indien beschikbaar.",
+    "Klink professioneel en zakelijk. Gebruik vaktaal waar relevant en verwijs naar onderliggende criteria of bronnen indien beschikbaar.",
   algemeen: "Gebruik heldere, neutrale taal die voor een breed publiek begrijpelijk is.",
 };
 
