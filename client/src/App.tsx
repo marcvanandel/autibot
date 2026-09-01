@@ -14,6 +14,11 @@ export function App() {
     setGesprek([]);
   }
 
+  function handleResetten() {
+    setDoelgroep(null);
+    setGesprek([]);
+  }
+
   async function handleVraagVersturen(vraag: string) {
     if (!doelgroep) return;
     const id = crypto.randomUUID();
@@ -34,7 +39,7 @@ export function App() {
 
   return (
     <div className="flex h-screen bg-white dark:bg-gray-950">
-      <Zijbalk doelgroep={doelgroep} onKiezen={handleDoelgroepKiezen} />
+      <Zijbalk doelgroep={doelgroep} onKiezen={handleDoelgroepKiezen} onResetten={handleResetten} />
       <Chatvenster doelgroep={doelgroep} gesprek={gesprek} onVraagVersturen={handleVraagVersturen} />
     </div>
   );
