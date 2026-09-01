@@ -131,3 +131,38 @@ describe("KeywordRetriever met een grotere set korte documenten", () => {
     expect(hoogsteIrrelevanteScore).toBeLessThan(hoogsteRelevanteScore);
   });
 });
+
+// Reproduceert een regressie waarbij een lang, opsommend artikel (bijv. een
+// literatuurlijst) de zoekterm zo vaak herhaalt dat het puur op woordfrequentie
+// hoger scoort dan het korte artikel waar de vraag feitelijk over gaat. Zie ADR-0011.
+const TITEL_VERSUS_HERHALING_DOCUMENTEN: Fragment[] = [
+  {
+    id: "wat-is-autisme",
+    titel: "Wat is autisme?",
+    doelgroep: ["algemeen"],
+    inhoud:
+      "Autisme is een ontwikkelingsstoornis die van invloed is op hoe iemand de wereld waarneemt en ermee omgaat.",
+    bestandspad: "wat-is-autisme.md",
+  },
+  {
+    id: "literatuur-en-bronnen",
+    titel: "Literatuur en bronnen over autisme",
+    doelgroep: ["algemeen"],
+    inhoud: Array(20)
+      .fill(
+        "Dit boek gaat over autisme en wordt veel gebruikt door professionals die met autisme werken.",
+      )
+      .join(" "),
+    bestandspad: "literatuur.md",
+  },
+];
+
+describe("KeywordRetriever met een titel die de vraag bijna letterlijk beantwoordt", () => {
+  it("laat het artikel met de exact overeenkomende titel winnen van een lang artikel dat de zoekterm vaker herhaalt", () => {
+    const retriever = new KeywordRetriever(TITEL_VERSUS_HERHALING_DOCUMENTEN);
+
+    const resultaten = retriever.search("Wat is autisme?", "algemeen");
+
+    expect(resultaten[0]?.id).toBe("wat-is-autisme");
+  });
+});

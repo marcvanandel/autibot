@@ -13,19 +13,19 @@ De *Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition* (DSM-5
 
 De *International Classification of Diseases, 11th Revision* (ICD-11, WHO, 2022) is de internationale ziekteclassificatie van de Wereldgezondheidsorganisatie. ICD-11 bevat de diagnose "Autism Spectrum Disorder" en wordt wereldwijd gebruikt, ook buiten Europa.
 
-Simon Baron-Cohen — *Mindblindness: An Essay on Autism and Theory of Mind* (MIT Press, 1995) — introduceerde de theorie-van-de-geest-hypothese als verklaring voor autisme. Baron-Cohen deed later ook invloedrijk werk over de empathiseer-systemeer-theorie en neurodiversiteit. Relevant voor professionals en geïnteresseerden met wetenschappelijke achtergrond.
+Simon Baron-Cohen — *Mindblindness: An Essay on Autism and Theory of Mind* (MIT Press, 1995) — introduceerde de theorie-van-de-geest-hypothese als verklarend model. Baron-Cohen deed later ook invloedrijk werk over de empathiseer-systemeer-theorie en neurodiversiteit. Relevant voor professionals en geïnteresseerden met wetenschappelijke achtergrond.
 
-Uta Frith — *Autism: Explaining the Enigma* (Blackwell, 1989; 2e druk 2003) — geeft een toegankelijke wetenschappelijke introductie op autisme, inclusief vroeg cognitief-psychologisch onderzoek. Geschikt als achtergrondlectuur voor professionals en geïnteresseerden.
+Uta Frith — *Autism: Explaining the Enigma* (Blackwell, 1989; 2e druk 2003) — geeft een toegankelijke wetenschappelijke introductie, inclusief vroeg cognitief-psychologisch onderzoek. Geschikt als achtergrondlectuur voor professionals en geïnteresseerden.
 
 Tony Attwood — *The Complete Guide to Asperger's Syndrome* (Jessica Kingsley Publishers, 2006; herziene druk 2007) — uitgebreide praktijkgerichte gids over het voormalige Asperger-syndroom, nu deel van het autismespectrum. Veelgebruikt door professionals, ouders en mensen met autisme zelf.
 
 ## Nederlandstalige en praktijkgerichte literatuur
 
-Peter Vermeulen — *Brein bedriegt: Als autisme niet op autisme lijkt* (Garant, 2009) — bespreekt hoe het brein van mensen met autisme informatie anders verwerkt en waarom autisme zich zo uiteenlopend kan presenteren. Relevant voor professionals en ouders.
+Peter Vermeulen — *Brein bedriegt: Als autisme niet op autisme lijkt* (Garant, 2009) — bespreekt hoe het brein informatie anders verwerkt en waarom de presentatie zo uiteenlopend kan zijn. Relevant voor professionals en ouders.
 
-Peter Vermeulen — *Autisme als contextstoornis* (Garant, 2009) — beschrijft autisme als een stoornis in het gebruik van context bij informatieverwerking. Biedt een theoretisch kader dat bruikbaar is in diagnostiek en begeleiding.
+Peter Vermeulen — *Autisme als contextstoornis* (Garant, 2009) — beschrijft een stoornis in het gebruik van context bij informatieverwerking. Biedt een theoretisch kader dat bruikbaar is in diagnostiek en begeleiding.
 
-Colette de Bruin — *Geef me de vijf: een praktisch boek voor thuis en op school bij kinderen met autismespectrumstoornissen* (Graviant, 2004) — is een veelgebruikt Nederlandstalig praktijkboek gericht op begeleiding van kinderen met autisme thuis en op school. Het boek is breed erkend als naslagwerk voor ouders, leerkrachten en begeleiders en geldt als standaard in de Nederlandse praktijk.
+Colette de Bruin — *Geef me de vijf: een praktisch boek voor thuis en op school bij kinderen met autismespectrumstoornissen* (Graviant, 2004) — is een veelgebruikt Nederlandstalig praktijkboek gericht op begeleiding van kinderen thuis en op school. Het boek is breed erkend als naslagwerk voor ouders, leerkrachten en begeleiders en geldt als standaard in de Nederlandse praktijk.
 
 De Nederlandse Vereniging voor Autisme (NVA) publiceert richtlijnen, brochures en adviesdocumenten over diagnostiek, onderwijs, werk en ondersteuning. De publicaties zijn beschikbaar via [autisme.nl](https://www.autisme.nl).
 
@@ -49,9 +49,9 @@ Het *Journal of Autism and Developmental Disorders* (JADD, Springer) is een van 
 
 ## Betrouwbare online bronnen
 
-De Nederlandse Vereniging voor Autisme (NVA) biedt informatie over autisme, richtlijnen en ondersteuning voor mensen met autisme, ouders en professionals: [autisme.nl](https://www.autisme.nl).
+De Nederlandse Vereniging voor Autisme (NVA) biedt informatie, richtlijnen en ondersteuning voor mensen met autisme, ouders en professionals: [autisme.nl](https://www.autisme.nl).
 
-Autisme Centraal is een Belgische kennisorganisatie met uitgebreide informatie over autisme in het Nederlands, gericht op professionals, ouders en mensen met autisme: [autismecentraal.com](https://www.autismecentraal.com).
+Autisme Centraal is een Belgische kennisorganisatie met uitgebreide Nederlandstalige informatie, gericht op professionals, ouders en mensen met autisme: [autismecentraal.com](https://www.autismecentraal.com).
 
 Het Kenniscentrum Kinder- en Jeugdpsychiatrie (KJP) biedt evidence-based informatie over diagnostiek en behandeling van psychische stoornissen bij kinderen en jongeren, waaronder autisme: [kenniscentrumkjp.nl](https://www.kenniscentrumkjp.nl).
 
