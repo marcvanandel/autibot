@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "concurrently \"vite build --watch --config client/vite.config.ts\" \"tsx --env-file-if-exists=.env src/index.ts\"",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p client/tsconfig.json"
+    "typecheck": "tsc --noEmit && tsc --noEmit -p client/tsconfig.json",
+    "slides": "marp --html docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md -o docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.html",
+    "slides:dev": "marp --html --server --watch docs/presentaties"
   },
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
+    "@marp-team/marp-cli": "^4.5.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
