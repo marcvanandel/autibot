@@ -42,6 +42,7 @@ Er is nu een werkende lokale demo-implementatie: een TypeScript/Node.js-backend 
 - [`docs/superpowers/specs/2026-07-23-react-chat-ui-design.md`](docs/superpowers/specs/2026-07-23-react-chat-ui-design.md) beschrijft de React/Vite/Tailwind-chatinterface.
 - [`docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md`](docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md) beschrijft de wisselbare LLM-provider.
 - [`adr/`](adr/) bevat Architecture Decision Records (0001 t/m 0010) die de belangrijkste technische keuzes en de motivatie daarachter vastleggen.
+- [`docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md`](docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md) is een Marp-slidedeck die in leken-taal uitlegt wat Autibot doet en waarom, voor zorgprofessionals en beleidsmakers.
 
 Aan de slag:
 
@@ -49,6 +50,7 @@ Aan de slag:
 - `npm run dev` — start de lokale server (op localhost). Standaard wordt Claude gebruikt, waarvoor een `ANTHROPIC_API_KEY`-omgevingsvariabele nodig is; zie [`.env.example`](.env.example) om in plaats daarvan een lokaal model te gebruiken.
 - `npm test` — draait de testsuite (35 tests, vitest).
 - `npm run typecheck` — controleert de TypeScript-types.
+- `npm run slides` — rendert de presentatie naar HTML; `npm run slides:dev` start een lokale preview met live-reload tijdens het bewerken.
 
 ## Licentie
 
