@@ -65,6 +65,20 @@ describe("server", () => {
     expect(html).toContain("<title>Autibot</title>");
   });
 
+  it("serveert svg static files met een svg content-type", async () => {
+    const fakeOrchestrator = { beantwoord: vi.fn() } as unknown as Orchestrator;
+    server = maakServer(fakeOrchestrator, PUBLIC_FIXTURE);
+    await new Promise<void>((resolve) => server!.listen(0, resolve));
+    const poort = (server.address() as AddressInfo).port;
+
+    const response = await fetch(`http://localhost:${poort}/logo.svg`);
+    const svg = await response.text();
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toContain("image/svg+xml");
+    expect(svg).toContain("<svg");
+  });
+
   it("geeft een 400 als 'vraag' ontbreekt of leeg is", async () => {
     const fakeOrchestrator = { beantwoord: vi.fn() } as unknown as Orchestrator;
     server = maakServer(fakeOrchestrator, PUBLIC_MAP);
