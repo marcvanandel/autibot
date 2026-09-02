@@ -1,0 +1,89 @@
+name: Publiceer presentatie op GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/presentaties/**"
+      - "assets/**"
+      - ".github/workflows/publish-presentatie.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code uitchecken
+        uses: actions/checkout@v4
+
+      - name: Node.js instellen
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Dependencies installeren
+        run: npm ci
+
+      - name: Presentatie renderen naar HTML
+        run: |
+          set -euo pipefail
+
+          mapfile -t md_files < <(find docs/presentaties -maxdepth 1 -name '*.md' | sort)
+          if [ "${#md_files[@]}" -ne 1 ]; then
+            echo "Verwacht precies 1 presentatie in docs/presentaties, gevonden: ${#md_files[@]}" >&2
+            printf '%s\n' "${md_files[@]}" >&2
+            exit 1
+          fi
+
+          mkdir -p _site/docs/presentaties
+          npx marp --html --no-stdin "${md_files[0]}" -o _site/docs/presentaties/index.html
+
+          if [ -d docs/presentaties/afbeeldingen ]; then
+            cp -r docs/presentaties/afbeeldingen _site/docs/presentaties/
+          fi
+          if [ -d assets ]; then
+            cp -r assets _site/
+          fi
+
+          # De presentatie gebruikt relatieve paden (bv. ../../assets/...), dus de
+          # gepubliceerde structuur volgt dezelfde mappenindeling als de repo.
+          # Deze root-pagina stuurt bezoekers direct door naar die ene presentatie.
+          printf '%s\n' \
+            '<!doctype html>' \
+            '<html lang="nl">' \
+            '<head>' \
+            '  <meta charset="utf-8">' \
+            '  <meta http-equiv="refresh" content="0; url=docs/presentaties/">' \
+            '  <link rel="canonical" href="docs/presentaties/">' \
+            '  <title>Autibot — presentatie</title>' \
+            '</head>' \
+            '<body>' \
+            '  <p>Je wordt doorgestuurd naar <a href="docs/presentaties/">de presentatie</a>.</p>' \
+            '</body>' \
+            '</html>' \
+            > _site/index.html
+
+      - name: Pages-artifact uploaden
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Naar GitHub Pages deployen
+        id: deployment
+        uses: actions/deploy-pages@v4

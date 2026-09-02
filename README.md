@@ -42,7 +42,7 @@ Er is nu een werkende lokale demo-implementatie: een TypeScript/Node.js-backend 
 - [`docs/superpowers/specs/2026-07-23-react-chat-ui-design.md`](docs/superpowers/specs/2026-07-23-react-chat-ui-design.md) beschrijft de React/Vite/Tailwind-chatinterface.
 - [`docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md`](docs/superpowers/specs/2026-07-24-lokaal-llm-provider-design.md) beschrijft de wisselbare LLM-provider.
 - [`adr/`](adr/) bevat Architecture Decision Records (0001 t/m 0010) die de belangrijkste technische keuzes en de motivatie daarachter vastleggen.
-- [`docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md`](docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md) is een Marp-slidedeck die in leken-taal uitlegt wat Autibot doet en waarom, voor zorgprofessionals en beleidsmakers.
+- [`docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md`](docs/presentaties/2026-09-01-wat-is-autibot-en-waarom.md) is een Marp-slidedeck die in leken-taal uitlegt wat Autibot doet en waarom, voor zorgprofessionals en beleidsmakers. Bij elke wijziging wordt deze automatisch gepubliceerd op [`https://marcvanandel.github.io/autibot/`](https://marcvanandel.github.io/autibot/) (zie [`.github/workflows/publish-presentatie.yml`](.github/workflows/publish-presentatie.yml)).
 
 Aan de slag:
 
