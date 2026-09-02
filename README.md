@@ -6,6 +6,8 @@
 
 Autibot is een Nederlandstalig projectidee voor een chatbot/chatinterface op basis van een LLM (Large Language Model), die vragen beantwoordt over ASS (Autisme Spectrum Stoornis) — voor mensen met autisme zelf, voor ouders/naasten, voor professionals en voor een breed publiek.
 
+> **Benieuwd wat Autibot doet en waarom, in gewone taal?** Bekijk de [presentatie](https://marcvanandel.github.io/autibot/) — een korte, niet-technische toelichting voor zorgprofessionals, beleidsmakers en andere geïnteresseerden.
+
 ## Over Autibot
 
 Autibot is een informatiehulp die vragen over ASS beantwoordt op basis van de geselecteerde kennisbank in deze repository.
